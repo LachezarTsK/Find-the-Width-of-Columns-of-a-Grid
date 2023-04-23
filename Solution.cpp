@@ -18,8 +18,8 @@ public:
                 int additionForNegativeValue = grid[row][column] < 0 ? 1 : 0;
 
                 int currentColumnWidth = grid[row][column] != 0
-                        //alternatively: static_cast<int>(log10(abs(grid[row][column]))) instead of floor(...)
-                        ? (floor(log10(abs(grid[row][column]))) + additionForFirstDigit + additionForNegativeValue)
+                        //in this context, log10(...) is implicitly converted to int
+                        ? (log10(abs(grid[row][column])) + additionForFirstDigit + additionForNegativeValue)
                         : 1;
 
                 maxColumnWidth = max(maxColumnWidth, currentColumnWidth);
